@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    connection-timeout: 60000ms
+      # 支持发布确认
+    publisher-confirms: true
+      # 支持发布返回
+    publisher-returns: true
+    cache:
+      channel:
+        size: 1
+
+
+  mail:
+    host: smtp.163.com
+    username: haohong278636029@163.com
+    password: haohong123  #这里是授权码不是登录密码
+    protocol: smtp
+    default-encoding: UTF-8
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.jenkins.own.entity
+
+logging:
+  level:
+    com.jenkins.own.dao: DEBUG
