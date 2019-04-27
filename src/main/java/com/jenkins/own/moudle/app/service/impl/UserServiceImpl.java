@@ -1,22 +1,18 @@
-package com.jenkins.own.service.impl;
+package com.jenkins.own.moudle.app.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.google.code.kaptcha.Producer;
 import com.jenkins.own.commom.Assert;
-import com.jenkins.own.dao.UserMapper;
-import com.jenkins.own.entity.User;
-import com.jenkins.own.exception.RRException;
-import com.jenkins.own.service.UserService;
+import com.jenkins.own.moudle.app.dao.UserMapper;
+import com.jenkins.own.moudle.app.entity.User;
+import com.jenkins.own.moudle.app.service.UserService;
 import com.jenkins.own.utils.JwtUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.image.BufferedImage;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -69,5 +65,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
 
         return map;
+    }
+
+    @Override
+    public List<User> getList(int pageSize, int pageNum) {
+        return this.baseMapper.getList(pageSize,pageNum);
     }
 }

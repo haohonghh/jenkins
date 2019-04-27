@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jenkins.own.moudle.app.dao.UserMapper" >
+    <select id="getList" resultType="com.jenkins.own.moudle.app.entity.User">
+        select * from user  limit #{pageNum} ,#{pageSize}
+    </select>
+</mapper>

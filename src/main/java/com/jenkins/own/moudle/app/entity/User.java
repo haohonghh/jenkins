@@ -1,4 +1,4 @@
-package com.jenkins.own.entity;
+package com.jenkins.own.moudle.app.entity;
 
 import lombok.Data;
 

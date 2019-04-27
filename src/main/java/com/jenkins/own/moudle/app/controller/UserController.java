@@ -1,27 +1,19 @@
-package com.jenkins.own.controller;
+package com.jenkins.own.moudle.app.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.IOUtils;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import com.jenkins.own.anno.Login;
-import com.jenkins.own.commom.Assert;
-import com.jenkins.own.entity.Mail;
-import com.jenkins.own.entity.User;
+import com.jenkins.own.anno.SysLog;
+import com.jenkins.own.moudle.app.entity.User;
 import com.jenkins.own.exception.RRException;
 import com.jenkins.own.rabbit.RabbitConstant;
-import com.jenkins.own.service.UserService;
+import com.jenkins.own.moudle.app.service.UserService;
 import com.jenkins.own.utils.CodeUtil;
-import com.jenkins.own.utils.MailUtil;
-import javafx.geometry.Pos;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
@@ -119,5 +111,12 @@ public class UserController {
     @GetMapping("/userInfo/{id}")
     public User getUserInfoById(@PathVariable Long id){
         return userService.getById(id);
+    }
+
+
+    @SysLog("测试用户列表")
+    @GetMapping("/test/list")
+    public List<User> test(int pageNum,int pageSize){
+        return userService.getList(pageNum,pageSize);
     }
 }

@@ -1,8 +1,7 @@
 package com.jenkins.own.rabbit;
 
 import com.alibaba.fastjson.JSON;
-import com.jenkins.own.entity.Mail;
-import com.jenkins.own.entity.User;
+import com.jenkins.own.moudle.app.entity.User;
 import com.jenkins.own.utils.MailUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

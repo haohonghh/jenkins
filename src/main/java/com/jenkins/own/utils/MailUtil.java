@@ -1,6 +1,6 @@
 package com.jenkins.own.utils;
 
-import com.jenkins.own.entity.Mail;
+import com.jenkins.own.moudle.app.entity.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
