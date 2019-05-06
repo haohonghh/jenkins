@@ -116,6 +116,7 @@ public class UserController {
 
     @SysLog("测试用户列表")
     @GetMapping("/test/list")
+    @CrossOrigin("http://localhost:8080")
     public List<User> test(int pageNum,int pageSize){
         return userService.getList(pageNum,pageSize);
     }
