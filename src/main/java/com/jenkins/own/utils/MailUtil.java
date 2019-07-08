@@ -30,7 +30,7 @@ public class MailUtil {
     public void sendMail() {
         SimpleMailMessage mimeMessage = new SimpleMailMessage();
         mimeMessage.setFrom(sender);
-        mimeMessage.setTo(sender);
+      //  mimeMessage.setTo(sender);
         mimeMessage.setSubject("测试");
         mimeMessage.setText("测试");
         mailSender.send(mimeMessage);
