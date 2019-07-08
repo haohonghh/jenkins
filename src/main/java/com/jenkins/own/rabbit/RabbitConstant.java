@@ -26,5 +26,10 @@ public class RabbitConstant {
      * 交换机
      */
     public static final String CONTROL_EXCHANGE = "control.exchange";
+
+    /**
+     * 创建Fanout交换器
+     */
+    public static final String FANOUT_ROUTING_KEY = "fanoutExchange";
 }
 

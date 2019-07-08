@@ -12,6 +12,16 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
       enabled: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+  redis:
+    host: 127.0.0.1
+    port: 6379
 
   rabbitmq:
     host: 127.0.0.1
@@ -32,7 +42,7 @@ spring:
   mail:
     host: smtp.163.com
     username: haohong278636029@163.com
-    password: haohong123  #这里是授权码不是登录密码
+    password: abc123456  #这里是授权码不是登录密码
     protocol: smtp
     default-encoding: UTF-8
 
@@ -47,5 +57,12 @@ logging:
     file: D://test//test.log
   level:
     com.jenkins.own.moudle.*.dao: DEBUG
+
+wechart:
+  appid: wx2ecdd2ac6af817bd
+  appSecret: 452d3d5b661a16d27c1fe9e414dc55bd
+  token: haohongguan
+
+
 
 

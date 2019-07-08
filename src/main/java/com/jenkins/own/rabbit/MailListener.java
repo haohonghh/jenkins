@@ -1,6 +1,7 @@
 package com.jenkins.own.rabbit;
 
 import com.alibaba.fastjson.JSON;
+import com.jenkins.own.moudle.app.entity.Mail;
 import com.jenkins.own.moudle.app.entity.User;
 import com.jenkins.own.utils.MailUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -22,18 +23,19 @@ public class MailListener {
      * @param
      */
     @RabbitListener(queues = RabbitConstant.EMAIL_QUEUE)
-    public void processEmail(byte[] objBytes) {
+    public void processEmail(User user) {
         try {
-            User user=(User) getObjectFromBytes(objBytes);
+         //   User user=(User) getObjectFromBytes(objBytes);
             log.info("准备开始向"+user.getName()+"发送邮件......");
-         /*   Mail mail = new Mail();
+            Mail mail = new Mail();
             mail.setSubject("test");
-            mail.setToWho(user.getEmail());
-            mail.setText("恭喜你："+user.getName()+"注册成功");*/
-         System.out.println(JSON.toJSONString(user));
-            mailUtil.sendMail();
+            mail.setToWho("1185386944@qq.com");
+            mail.setText("恭喜你："+user.getName()+"注册成功");
+            System.out.println(JSON.toJSONString(user));
+            mailUtil.sendMail(mail);
             log.info("发送邮件成功......");
         } catch (Exception e) {
+            log.error(e.getMessage());
             log.error("邮件发送失败了!");
         }
     }
